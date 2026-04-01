@@ -1,0 +1,199 @@
+// Layout: Fixed navigation bar with logo, section links, and language toggle
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useLang } from "../../context/LanguageContext";
+
+const SECTION_IDS = ["hero", "about", "transformations", "services", "packages", "contact"];
+
+export default function Navbar() {
+  const { t, lang, toggleLang, dir } = useLang();
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Become more opaque on scroll
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Track active section with IntersectionObserver
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-30% 0px -60% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  const scrollTo = (id: string) => {
+    setMenuOpen(false);
+    if (id === "hero") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const navLinks = [
+    { id: "hero",            label: t.navLinks.home },
+    { id: "about",           label: t.navLinks.about },
+    { id: "transformations", label: t.navLinks.transformations },
+    { id: "services",        label: t.navLinks.services },
+    { id: "packages",        label: t.navLinks.packages },
+    { id: "contact",         label: t.navLinks.contact },
+  ];
+
+  return (
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed inset-x-0 top-0 z-50 border-b border-gold/20 transition-all duration-500 ${
+        scrolled
+          ? "bg-black/95 shadow-[0_4px_30px_rgba(0,0,0,0.6)] backdrop-blur-md"
+          : "bg-black/80 backdrop-blur-sm"
+      }`}
+    >
+      <div className="mx-auto flex h-[70px] max-w-7xl items-center justify-between px-6 md:px-10">
+
+        {/* ── Logo ── */}
+        <button
+          onClick={() => scrollTo("hero")}
+          className="group flex flex-col items-center leading-none"
+          aria-label="Back to top"
+        >
+          <span className="font-bebas text-[2rem] tracking-widest">
+            <span className="text-gold">A</span>
+            <span className="text-white">R</span>
+          </span>
+          <span className="block h-[2px] w-full bg-gold transition-shadow duration-300 group-hover:shadow-[0_0_8px_rgba(245,166,35,0.8)]" />
+        </button>
+
+        {/* ── Desktop Nav Links ── */}
+        <nav className="hidden items-center gap-7 md:flex" dir={dir} aria-label="Main navigation">
+          {navLinks.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              className={`relative pb-1 text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${
+                activeSection === id
+                  ? "text-gold"
+                  : "text-muted hover:text-white"
+              }`}
+            >
+              {label}
+              {/* Animated underline for active link */}
+              {activeSection === id && (
+                <motion.span
+                  layoutId="nav-underline"
+                  className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-gold"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
+        </nav>
+
+        {/* ── Right: Language Toggle + Hamburger ── */}
+        <div className="flex items-center gap-3">
+          {/* Language toggle */}
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-bold text-muted transition-all duration-200 hover:border-gold hover:text-gold"
+            aria-label="Toggle language"
+          >
+            <span className={lang === "en" ? "text-gold" : undefined}>EN</span>
+            <span className="opacity-40">|</span>
+            <span className={lang === "ar" ? "text-gold" : undefined}>عربي</span>
+          </button>
+
+          {/* Hamburger — mobile only */}
+          <button
+            className="text-muted transition-colors hover:text-gold md:hidden"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {menuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={22} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="open"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={22} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
+      </div>
+
+      {/* ── Mobile Dropdown Menu ── */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-gold/10 bg-black/98 backdrop-blur-md md:hidden"
+          >
+            <nav
+              className="flex flex-col gap-1 px-6 py-4"
+              dir={dir}
+              aria-label="Mobile navigation"
+            >
+              {navLinks.map(({ id, label }, i) => (
+                <motion.button
+                  key={id}
+                  initial={{ opacity: 0, x: dir === "rtl" ? 20 : -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05, duration: 0.25 }}
+                  onClick={() => scrollTo(id)}
+                  className={`py-3 text-right text-base font-bold uppercase tracking-widest transition-colors duration-200 ${
+                    dir === "ltr" ? "text-left" : "text-right"
+                  } ${
+                    activeSection === id
+                      ? "text-gold"
+                      : "text-muted hover:text-white"
+                  }`}
+                >
+                  {label}
+                </motion.button>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  );
+}
