@@ -16,7 +16,7 @@ export default function Navbar() {
 
   // Become more opaque on scroll
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -64,25 +64,24 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed inset-x-0 top-0 z-50 border-b border-gold/20 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "bg-black/95 shadow-[0_4px_30px_rgba(0,0,0,0.6)] backdrop-blur-md"
-          : "bg-black/80 backdrop-blur-sm"
+          ? "border-gold/20 bg-black/80 shadow-[0_4px_30px_rgba(0,0,0,0.6)] backdrop-blur-md"
+          : "border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-[70px] max-w-7xl items-center justify-between px-6 md:px-10">
+      <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-6 md:px-10">
 
         {/* ── Logo ── */}
         <button
           onClick={() => scrollTo("hero")}
-          className="group flex flex-col items-center leading-none"
+          className="flex items-baseline leading-none"
           aria-label="Back to top"
         >
-          <span className="font-bebas text-[2rem] tracking-widest">
+          <span className="font-bebas text-[2.5rem] tracking-widest">
             <span className="text-gold">A</span>
             <span className="text-white">R</span>
           </span>
-          <span className="block h-[2px] w-full bg-gold transition-shadow duration-300 group-hover:shadow-[0_0_8px_rgba(245,166,35,0.8)]" />
         </button>
 
         {/* ── Desktop Nav Links ── */}
@@ -91,10 +90,10 @@ export default function Navbar() {
             <button
               key={id}
               onClick={() => scrollTo(id)}
-              className={`relative pb-1 text-xs font-bold uppercase tracking-widest transition-colors duration-200 ${
+              className={`relative pb-1 text-xs font-bold uppercase tracking-[0.15em] transition-colors duration-200 ${
                 activeSection === id
                   ? "text-gold"
-                  : "text-muted hover:text-white"
+                  : "text-white/50 hover:text-white"
               }`}
             >
               {label}
@@ -115,12 +114,12 @@ export default function Navbar() {
           {/* Language toggle */}
           <button
             onClick={toggleLang}
-            className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-bold text-muted transition-all duration-200 hover:border-gold hover:text-gold"
+            className="flex items-center gap-2 text-xs font-bold transition-colors duration-200 hover:text-white"
             aria-label="Toggle language"
           >
-            <span className={lang === "en" ? "text-gold" : undefined}>EN</span>
-            <span className="opacity-40">|</span>
-            <span className={lang === "ar" ? "text-gold" : undefined}>عربي</span>
+            <span className={lang === "en" ? "text-white" : "text-white/40"}>EN</span>
+            <span className="text-white/30">|</span>
+            <span className={lang === "ar" ? "text-white" : "text-white/40"}>عربي</span>
           </button>
 
           {/* Hamburger — mobile only */}

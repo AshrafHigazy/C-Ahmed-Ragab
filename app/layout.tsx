@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bebas_Neue, Oswald, Cairo } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
+import WhatsAppButton from "../components/ui/WhatsAppButton";
 
 const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-cairo">
         <LanguageProvider>
           {children}
+          <WhatsAppButton />
         </LanguageProvider>
       </body>
     </html>

@@ -1,10 +1,10 @@
 // Lib: Static bilingual (AR/EN) content dictionary for all landing page text
 export const translations = {
   en: {
-    heroBadge: "ONLINE COACHING",
-    heroHeadline: "BECOME YOUR BEST SELF",
-    heroSubtitle: "With Coach Ahmed Ragab — Custom Nutrition + Training + 24/7 Support",
-    heroCTA: "Start Your Journey",
+
+    heroName: "AHMED RAGAB",
+    heroTag: "[ BE YOURSELF ]",
+    heroQuote: "Just like I helped them change their lifestyle, live a healthy life, and become the best version of yourself.",
 
     navLinks: {
       home: "Home",
@@ -70,10 +70,9 @@ export const translations = {
     footerText: "© 2026 Ahmed Ragab Coaching. All rights reserved."
   },
   ar: {
-    heroBadge: "كوتشينج أونلاين",
-    heroHeadline: "كن النسخة الأفضل من نفسك",
-    heroSubtitle: "مع كابتن أحمد رجب — خطة تغذية + تدريب + متابعة 24 ساعة",
-    heroCTA: "ابدأ رحلتك الآن",
+    heroName: "أحمد رجب",
+    heroTag: "[ كن نفسك ]",
+    heroQuote: "زى ما ساعدتهم يغيرو طريقة حياتهم , عيش بطريقة صحية , واوصل انت كمان لاحسن نسخة من نفسك.",
 
     navLinks: {
       home: "الرئيسية",

@@ -9,8 +9,10 @@ import { useLang } from "../../context/LanguageContext";
 const IMAGES = [
   "/images/transformations/t1.jpg",
   "/images/transformations/t2.jpg",
-  // "/images/transformations/t3.jpg",
-  // "/images/transformations/t4.jpg",
+  "/images/transformations/t3.jpg",
+  "/images/transformations/t4.jpg",
+  "/images/transformations/t5.jpg",
+
 ];
 
 const AUTO_PLAY_INTERVAL = 2000;
