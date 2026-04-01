@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Oswald, Cairo } from "next/font/google";
+import { Cairo, Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
 import WhatsAppButton from "../components/ui/WhatsAppButton";
+import Script from "next/script";
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-bebas-neue",
-});
-
-const oswald = Oswald({
-  subsets: ["latin"],
-  variable: "--font-oswald",
+  variable: "--font-inter",
 });
 
 const cairo = Cairo({
@@ -21,8 +16,49 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "Coach Ahmed Ragab | Online Coaching",
-  description: "Elite online fitness & nutrition coaching to transform your body and lifestyle with Coach Ahmed Ragab.",
+  metadataBase: new URL("https://coachragab.com"),
+  title: "كابتن أحمد رجب | أفضل كوتشينج وتدريب أونلاين",
+  description: "انضم إلى أكثر من 500+ مشترك وحقق أفضل نسخة من نفسك مع كابتن أحمد رجب. خطط تدريب وتغذية مخصصة ومتابعة 24/7.",
+  openGraph: {
+    locale: "ar_EG",
+    type: "website",
+    title: "كابتن أحمد رجب | أفضل كوتشينج وتدريب أونلاين",
+    description: "حقق أفضل نسخة من نفسك مع خطط التدريب والتغذية المخصصة من كابتن أحمد رجب.",
+    url: "https://coachragab.com",
+    siteName: "Coach Ahmed Ragab",
+    images: [
+      {
+        url: "/images/hero-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Coach Ahmed Ragab Transformation",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "كابتن أحمد رجب | كوتشينج وتدريب أونلاين",
+    description: "حقق أفضل نسخة من نفسك مع خطط التدريب والتغذية المخصصة من كابتن أحمد رجب.",
+    images: ["/images/hero-bg.jpg"],
+  },
+  alternates: {
+    canonical: "https://coachragab.com",
+    languages: {
+      "ar-EG": "https://coachragab.com",
+      "en-US": "https://coachragab.com/en",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -30,9 +66,60 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Building the unified JSON-LD schema based exactly on the Hossam Mansour reference
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "HealthAndBeautyBusiness"],
+        "@id": "https://coachragab.com/#organization",
+        name: "Coach Ahmed Ragab",
+        url: "https://coachragab.com",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://coachragab.com/images/hero-bg.jpg",
+          caption: "Coach Ahmed Ragab Logo"
+        },
+        image: "https://coachragab.com/images/hero-bg.jpg",
+        description: "An elite online fitness & nutrition coach dedicated to transforming your body and lifestyle through tailored, science-based approaches.",
+        telephone: "+201115584417", 
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+201115584417",
+          contactType: "customer support",
+          areaServed: "EG",
+          availableLanguage: ["Arabic", "English"]
+        },
+        sameAs: [
+          "https://www.instagram.com/coachragab?igsh=dnNlYzVwd2VjeXZz",
+          "https://www.facebook.com/share/18agxWW9wq/",
+          "https://www.tiktok.com/@coach.ragab"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://coachragab.com/#person",
+        name: "Ahmed Ragab",
+        jobTitle: "Fitness Trainer",
+        url: "https://coachragab.com",
+        image: "https://coachragab.com/images/hero-bg.jpg",
+        sameAs: [
+          "https://www.instagram.com/coachragab?igsh=dnNlYzVwd2VjeXZz",
+          "https://www.facebook.com/share/18agxWW9wq/",
+          "https://www.tiktok.com/@coach.ragab"
+        ]
+      }
+    ]
+  };
+
   return (
-    <html lang="ar" dir="rtl" className={`${bebasNeue.variable} ${oswald.variable} ${cairo.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-cairo">
+    <html lang="ar" dir="rtl" className={`${inter.variable} ${cairo.variable} h-full antialiased font-sans scroll-smooth`}>
+      <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
+        <Script
+          id="schema-org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        />
         <LanguageProvider>
           {children}
           <WhatsAppButton />

@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-gold: #F5A623;
+  /* Brand Colors */
+  --color-orange: #F5A623;
   --color-brick: #B94E3A;
-  --color-black: #0A0A0A;
+  --color-dark-bg: #050505;
+  --color-white: #FFFFFF;
+
+  /* UI Colors */
   --color-surface: #141414;
   --color-border: #222222;
   --color-text: #F0F0F0;
   --color-muted: #888888;
 
-  --color-background: var(--color-black);
+  /* Theme mappings */
+  --color-background: var(--color-dark-bg);
   --color-foreground: var(--color-text);
   
-  --font-bebas: var(--font-bebas-neue);
-  --font-oswald: var(--font-oswald);
-  --font-cairo: var(--font-cairo);
+  /* Fonts */
+  --font-heading: var(--font-cairo), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+}
+
+/* Base resets & native behavior */
+:root {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-black);
-  color: var(--color-text);
-  font-family: var(--font-cairo), sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
   transition: direction 150ms ease, background-color 150ms ease, color 150ms ease;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+@utility stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
 }
