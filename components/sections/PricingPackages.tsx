@@ -73,11 +73,10 @@ export default function PricingPackages() {
                       <motion.div
                         key={idx}
                         variants={cardVariants}
-                        className={`relative flex w-full flex-col rounded-3xl p-6 sm:p-8 flex-1 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] ${
-                          pkg.featured
+                        className={`relative flex w-full flex-col rounded-3xl p-6 sm:p-8 flex-1 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] ${pkg.featured
                             ? "bg-[#0F0F0F] border-2 border-gold shadow-[0_0_30px_rgba(245,197,24,0.1)]"
                             : "bg-[#0F0F0F] border border-[#1A1A1A]"
-                        }`}
+                          }`}
                       >
                         {pkg.badge && (
                           <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gold px-4 py-1 text-xs sm:text-sm font-bold text-black uppercase tracking-wider flex items-center gap-1 shadow-lg whitespace-nowrap">
@@ -125,11 +124,10 @@ export default function PricingPackages() {
                               price: `${pkg.salePrice} ${pkg.currency}`,
                             })
                           }
-                          className={`flex w-full items-center justify-center rounded-xl py-4 text-lg font-bold transition-all duration-300 hover:scale-[1.02] ${
-                            pkg.featured
+                          className={`flex w-full items-center justify-center rounded-xl py-4 text-lg font-bold transition-all duration-300 hover:scale-[1.02] ${pkg.featured
                               ? "bg-gold text-black hover:bg-white"
                               : "bg-[#1A1A1A] text-white hover:bg-gold hover:text-black"
-                          }`}
+                            }`}
                         >
                           {pkg.cta}
                         </button>

@@ -82,15 +82,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ar" dir="rtl" className={`${inter.variable} ${cairo.variable} ${barlowCondensed.variable} h-full antialiased font-sans scroll-smooth`}>
       <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
-        <form name="subscription" data-netlify="true" hidden>
-          <input name="package" />
-          <input name="price" />
-          <input name="name" />
-          <input name="age" />
-          <input name="gender" />
-          <input name="whatsapp" />
-          <input name="screenshot" />
-        </form>
         <Script id="schema-org" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
         <LanguageProvider>
           {children}
@@ -100,3 +91,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
+
+
