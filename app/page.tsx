@@ -5,6 +5,7 @@ import CoachIntro from "../components/sections/CoachIntro";
 import TransformationSlider from "../components/sections/TransformationSlider";
 import WhatIsCoaching from "../components/sections/WhatIsCoaching";
 import WhatYouGet from "../components/sections/WhatYouGet";
+import HowToSection from "../components/sections/HowToSection";
 import PricingPackages from "../components/sections/PricingPackages";
 import ContactSection from "../components/sections/ContactSection";
 import Footer from "../components/layout/Footer";
@@ -16,9 +17,10 @@ export default function Home() {
       <main className="flex min-h-screen flex-col bg-black selection:bg-gold selection:text-black">
         <HeroSection />
         <CoachIntro />
-        <TransformationSlider />
         <WhatIsCoaching />
         <WhatYouGet />
+        <HowToSection />
+        <TransformationSlider />
         <PricingPackages />
         <ContactSection />
         <Footer />

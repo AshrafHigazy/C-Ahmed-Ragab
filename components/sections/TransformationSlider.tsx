@@ -1,9 +1,10 @@
-// Section: Auto-playing transformation photos slider
+// Section: Manual transformation photos slider
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLang } from "../../context/LanguageContext";
 
 const IMAGES = [
@@ -12,13 +13,10 @@ const IMAGES = [
   "/images/transformations/t3.jpg",
   "/images/transformations/t4.jpg",
   "/images/transformations/t5.jpg",
-
 ];
 
-const AUTO_PLAY_INTERVAL = 2000;
-
 export default function TransformationSlider() {
-  const { t } = useLang();
+  const { t, dir } = useLang();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -36,10 +34,11 @@ export default function TransformationSlider() {
     setCurrent(next);
   }, [current]);
 
-  useEffect(() => {
-    const timer = setInterval(goNext, AUTO_PLAY_INTERVAL);
-    return () => clearInterval(timer);
-  }, [goNext]);
+  const goPrev = useCallback(() => {
+    const prev = current === 0 ? IMAGES.length - 1 : current - 1;
+    setDirection(-1);
+    setCurrent(prev);
+  }, [current]);
 
   const slideVariants = {
     enter: (dir: number) => ({
@@ -77,7 +76,7 @@ export default function TransformationSlider() {
         </motion.div>
 
         {/* Slider Container */}
-        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-3xl border border-border shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+        <div className="relative mx-auto max-w-[1280px] overflow-hidden rounded-3xl border border-border shadow-[0_0_40px_rgba(0,0,0,0.6)] group">
           {/* 1:1 aspect ratio = 1280x1280 */}
           <div className="relative aspect-square w-full">
             <AnimatePresence initial={false} custom={direction} mode="popLayout">
@@ -102,6 +101,22 @@ export default function TransformationSlider() {
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
               </motion.div>
             </AnimatePresence>
+            
+            {/* Arrows */}
+            <button
+              onClick={dir === "rtl" ? goNext : goPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 z-10 opacity-0 group-hover:opacity-100 focus:opacity-100"
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={dir === "rtl" ? goPrev : goNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white transition-colors hover:bg-black/80 z-10 opacity-0 group-hover:opacity-100 focus:opacity-100"
+              aria-label="Next image"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </div>
 

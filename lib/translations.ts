@@ -16,8 +16,8 @@ export const translations = {
     },
 
     introTitle: "WHO IS COACH RAGAB?",
-    introName: "AHMED RAGAB",
-    introDesc: "An elite online fitness & nutrition coach dedicated to transforming your body and lifestyle through tailored, science-based approaches.",
+    //introName: "WHO IS COACH RAGAB?",
+    introDesc: "An internationally certified personal trainer specializing in body rebuilding and achieving real transformations through meticulously designed, scientifically based training systems.",
     stats: {
       clients: { count: "500+", label: "Clients" },
       experience: { count: "5+", label: "Years Experience" },
@@ -44,22 +44,86 @@ export const translations = {
       { icon: "📱", title: "24/7 Follow-Up", text: "Round-the-clock support — message anytime, get a reply ASAP" },
     ],
 
+    howToTitle1: "HOW TO",
+    howToTitle2: "SUBSCRIPTION",
+    howToSteps: [
+      { title: "HOW TO SUBSCRIBE?", desc: "Contact Coach Ahmed Ragab via WhatsApp after choosing your package to complete payment easily inside or outside Egypt." },
+      { title: "HOW TO COMMUNICATE?", desc: "You'll have 24/7 follow-up with Coach Ahmed Ragab directly via WhatsApp — anytime, fast reply guaranteed." },
+      { title: "HOW TO TRAIN?", desc: "You'll receive a fully customized training plan with video explanations, designed for gym or home, updated monthly." },
+      { title: "HOW TO FOLLOW-UP?", desc: "Daily monitoring of your progress with diet and training adjustments every 15 days based on your results." },
+    ],
+
     pricingTitle: "COACHING PACKAGES",
-    pricingPackages: [
+    pricingCategories: [
       {
-        duration: "30 Days", price: "750", currency: "EGP",
-        desc: "Perfect start — get your custom plan and begin your transformation",
-        cta: "Get Started", primary: false
+        title: "Nutrition Plan",
+        packages: [
+          {
+            duration: "30 Days",
+            salePrice: "250",
+            originalPrice: "500",
+            percentage: "50",
+            currency: "EGP",
+            features: [
+              "A meticulously studied nutrition plan for your goal",
+              "Daily follow-up via WhatsApp",
+              "Diet modified every 15 days"
+            ],
+            badge: null,
+            cta: "Subscribe Now"
+          },
+          {
+            duration: "90 Days",
+            salePrice: "1,000",
+            originalPrice: "1,500",
+            percentage: "33",
+            currency: "EGP",
+            features: [
+              "A meticulously studied nutrition plan for your goal",
+              "Daily follow-up via WhatsApp",
+              "Diet modified every 15 days"
+            ],
+            badge: "BEST VALUE",
+            featured: true,
+            cta: "Subscribe Now"
+          }
+        ]
       },
       {
-        duration: "90 Days", price: "2,300", currency: "EGP",
-        desc: "Build real habits and see serious results with consistent coaching",
-        cta: "Most Popular", primary: true, badge: "BEST VALUE"
-      },
-      {
-        duration: "180 Days", price: "4,500", currency: "EGP",
-        desc: "The full transformation — maximum results, maximum support",
-        cta: "Go All In", primary: false
+        title: "Membership",
+        packages: [
+          {
+            duration: "30 Days",
+            salePrice: "750",
+            originalPrice: "1,000",
+            percentage: "25",
+            currency: "EGP",
+            features: [
+              "Customized training plan with video explanations",
+              "A meticulously studied nutrition plan for your goal",
+              "Daily follow-up via WhatsApp",
+              "Diet modified every 15 days"
+            ],
+            badge: null,
+            cta: "Subscribe Now"
+          },
+          {
+            duration: "90 Days",
+            salePrice: "2,000",
+            originalPrice: "3,000",
+            percentage: "33",
+            currency: "EGP",
+            features: [
+              "Customized training plan with video explanations",
+              "A meticulously studied nutrition plan for your goal",
+              "Daily follow-up via WhatsApp",
+              "Diet modified every 15 days"
+            ],
+            badge: "BEST VALUE",
+            featured: true,
+            cta: "Subscribe Now"
+          }
+        ]
       }
     ],
 
@@ -84,8 +148,7 @@ export const translations = {
     },
 
     introTitle: "من هو كابتن رجب؟",
-    introName: "أحمد رجب",
-    introDesc: "مدرب لياقة بدنية وتغذية أونلاين محترف، مكرس لتغيير جسمك وأسلوب حياتك من خلال خطط مصممة خصيصاً على أسس علمية.",
+    introDesc: "مدرب شخصي معتمد دوليًا متخصص في إعادة بناء الجسم وتحقيق تحولات حقيقية من خلال أنظمة تدريب مصممة بدقة وقائمة على أسس علمية.",
     stats: {
       clients: { count: "+500", label: "عميل" },
       experience: { count: "+5", label: "سنوات خبرة" },
@@ -112,22 +175,86 @@ export const translations = {
       { icon: "📱", title: "متابعة 24 ساعة", text: "متابعة 24 ساعة — ابعت في أي وقت وهيوصلك رد في أسرع وقت" },
     ],
 
-    pricingTitle: "باقات الكوتشينج",
-    pricingPackages: [
+    howToTitle1: "كيف",
+    howToTitle2: "تشترك؟",
+    howToSteps: [
+      { title: "كيف تشترك؟", desc: "تواصل مع كابتن أحمد رجب عبر واتساب بعد اختيار باقتك لإتمام الدفع بسهولة داخل أو خارج مصر." },
+      { title: "كيف التواصل؟", desc: "هتحظى بمتابعة 24/7 مع الكابتن أحمد رجب مباشرة عبر واتساب — في أي وقت وبرد سريع مضمون." },
+      { title: "كيف التدريب؟", desc: "هتستلم خطة تدريبية مخصصة بالكامل مشروحة بالفيديو، مصممة للجيم أو البيت، ومتجددة شهرياً." },
+      { title: "كيف المتابعة؟", desc: "متابعة يومية لتقدمك مع تعديل الدايت والتدريب كل 15 يوم بناءً على نتائجك." },
+    ],
+
+    pricingTitle: "باقات الاشتراك",
+    pricingCategories: [
       {
-        duration: "٣٠ يوم", price: "750", currency: "ج.م",
-        desc: "بداية مثالية — احصل على خطتك وابدأ رحلة التحول",
-        cta: "ابدأ الآن", primary: false
+        title: "خطة التغذية",
+        packages: [
+          {
+            duration: "30 يوم",
+            salePrice: "250",
+            originalPrice: "500",
+            percentage: "50",
+            currency: "ج.م",
+            features: [
+              "خطة تغذية مدروسة لهدفك",
+              "متابعة يومية عبر الواتساب",
+              "تغيير النظام الغذائي كل 15 يوم"
+            ],
+            badge: null,
+            cta: "اشترك الآن"
+          },
+          {
+            duration: "90 يوم",
+            salePrice: "1,000",
+            originalPrice: "1,500",
+            percentage: "33",
+            currency: "ج.م",
+            features: [
+              "خطة تغذية مدروسة لهدفك",
+              "متابعة يومية عبر الواتساب",
+              "تغيير النظام الغذائي كل 15 يوم"
+            ],
+            badge: "الأفضل",
+            featured: true,
+            cta: "اشترك الآن"
+          }
+        ]
       },
       {
-        duration: "٩٠ يوم", price: "2,300", currency: "ج.م",
-        desc: "بني عادات حقيقية وشوف نتائج مع متابعة مستمرة",
-        cta: "الأكثر طلباً", primary: true, badge: "القيمة الأفضل"
-      },
-      {
-        duration: "١٨٠ يوم", price: "4,500", currency: "ج.م",
-        desc: "التحول الكامل — أقصى نتائج وأقصى متابعة",
-        cta: "الباقة الكاملة", primary: false
+        title: "الاشتراك الكامل",
+        packages: [
+          {
+            duration: "30 يوم",
+            salePrice: "750",
+            originalPrice: "1,000",
+            percentage: "25",
+            currency: "ج.م",
+            features: [
+              "نظام تدريبي مخصص مشروح بالفيديوهات",
+              "خطة تغذية مدروسة لهدفك",
+              "متابعة يومية عبر الواتساب",
+              "تغيير النظام الغذائي كل 15 يوم"
+            ],
+            badge: null,
+            cta: "اشترك الآن"
+          },
+          {
+            duration: "90 يوم",
+            salePrice: "2,000",
+            originalPrice: "3,000",
+            percentage: "33",
+            currency: "ج.م",
+            features: [
+              "نظام تدريبي مخصص مشروح بالفيديوهات",
+              "خطة تغذية مدروسة لهدفك",
+              "متابعة يومية عبر الواتساب",
+              "تغيير النظام الغذائي كل 15 يوم"
+            ],
+            badge: "الأفضل",
+            featured: true,
+            cta: "اشترك الآن"
+          }
+        ]
       }
     ],
 

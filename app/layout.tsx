@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cairo, Inter } from "next/font/google";
+import { Cairo, Inter, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "../context/LanguageContext";
 import WhatsAppButton from "../components/ui/WhatsAppButton";
@@ -15,6 +15,12 @@ const cairo = Cairo({
   variable: "--font-cairo",
 });
 
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-barlow",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://coachragab.com"),
   title: "كابتن أحمد رجب | أفضل كوتشينج وتدريب أونلاين",
@@ -26,14 +32,7 @@ export const metadata: Metadata = {
     description: "حقق أفضل نسخة من نفسك مع خطط التدريب والتغذية المخصصة من كابتن أحمد رجب.",
     url: "https://coachragab.com",
     siteName: "Coach Ahmed Ragab",
-    images: [
-      {
-        url: "/images/hero-bg.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Coach Ahmed Ragab Transformation",
-      },
-    ],
+    images: [{ url: "/images/hero-bg.jpg", width: 1200, height: 630, alt: "Coach Ahmed Ragab Transformation" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -43,30 +42,16 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://coachragab.com",
-    languages: {
-      "ar-EG": "https://coachragab.com",
-      "en-US": "https://coachragab.com/en",
-    },
+    languages: { "ar-EG": "https://coachragab.com", "en-US": "https://coachragab.com/en" },
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  // Building the unified JSON-LD schema based exactly on the Hossam Mansour reference
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@graph": [
@@ -75,26 +60,12 @@ export default function RootLayout({
         "@id": "https://coachragab.com/#organization",
         name: "Coach Ahmed Ragab",
         url: "https://coachragab.com",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://coachragab.com/images/hero-bg.jpg",
-          caption: "Coach Ahmed Ragab Logo"
-        },
+        logo: { "@type": "ImageObject", url: "https://coachragab.com/images/hero-bg.jpg", caption: "Coach Ahmed Ragab Logo" },
         image: "https://coachragab.com/images/hero-bg.jpg",
         description: "An elite online fitness & nutrition coach dedicated to transforming your body and lifestyle through tailored, science-based approaches.",
-        telephone: "+201115584417", 
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+201115584417",
-          contactType: "customer support",
-          areaServed: "EG",
-          availableLanguage: ["Arabic", "English"]
-        },
-        sameAs: [
-          "https://www.instagram.com/coachragab?igsh=dnNlYzVwd2VjeXZz",
-          "https://www.facebook.com/share/18agxWW9wq/",
-          "https://www.tiktok.com/@coach.ragab"
-        ]
+        telephone: "+201115584417",
+        contactPoint: { "@type": "ContactPoint", telephone: "+201115584417", contactType: "customer support", areaServed: "EG", availableLanguage: ["Arabic", "English"] },
+        sameAs: ["https://www.instagram.com/coachragab?igsh=dnNlYzVwd2VjeXZz", "https://www.facebook.com/share/18agxWW9wq/", "https://www.tiktok.com/@coach.ragab"]
       },
       {
         "@type": "Person",
@@ -103,23 +74,15 @@ export default function RootLayout({
         jobTitle: "Fitness Trainer",
         url: "https://coachragab.com",
         image: "https://coachragab.com/images/hero-bg.jpg",
-        sameAs: [
-          "https://www.instagram.com/coachragab?igsh=dnNlYzVwd2VjeXZz",
-          "https://www.facebook.com/share/18agxWW9wq/",
-          "https://www.tiktok.com/@coach.ragab"
-        ]
+        sameAs: ["https://www.instagram.com/coachragab?igsh=dnNlYzVwd2VjeXZz", "https://www.facebook.com/share/18agxWW9wq/", "https://www.tiktok.com/@coach.ragab"]
       }
     ]
   };
 
   return (
-    <html lang="ar" dir="rtl" className={`${inter.variable} ${cairo.variable} h-full antialiased font-sans scroll-smooth`}>
+    <html lang="ar" dir="rtl" className={`${inter.variable} ${cairo.variable} ${barlowCondensed.variable} h-full antialiased font-sans scroll-smooth`}>
       <body className="min-h-full flex flex-col font-sans transition-colors duration-300">
-        <Script
-          id="schema-org"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-        />
+        <Script id="schema-org" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
         <LanguageProvider>
           {children}
           <WhatsAppButton />

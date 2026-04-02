@@ -120,7 +120,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-[clamp(20px,12vw,100px)] uppercase leading-[0.85] text-white flex flex-col items-center"
+          className="text-[clamp(1px,12vw,100px)] uppercase leading-[0.85] text-white flex flex-col items-center"
           style={HEADING_STYLE}
         >
           <span className="block drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)]">

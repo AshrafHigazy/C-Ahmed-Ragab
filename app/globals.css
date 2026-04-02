@@ -1,28 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Brand Colors */
-  --color-orange: #F5A623;
-  --color-brick: #B94E3A;
-  --color-dark-bg: #050505;
+  --color-gold: #F5C518;
+  --color-orange: #F5C518;
+  --color-brick: #CC2200;
+  --color-dark-bg: #000000;
   --color-white: #FFFFFF;
-
-  /* UI Colors */
-  --color-surface: #141414;
-  --color-border: #222222;
-  --color-text: #F0F0F0;
-  --color-muted: #888888;
-
-  /* Theme mappings */
+  --color-surface: #0F0F0F;
+  --color-border: #1A1A1A;
+  --color-text: #FFFFFF;
+  --color-muted: #999999;
   --color-background: var(--color-dark-bg);
   --color-foreground: var(--color-text);
-  
-  /* Fonts */
-  --font-heading: var(--font-cairo), sans-serif;
-  --font-body: var(--font-inter), sans-serif;
+  --font-heading: var(--font-barlow), "Impact", sans-serif;
+  --font-body: var(--font-cairo), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Base resets & native behavior */
 :root {
   scroll-behavior: smooth;
 }
@@ -36,8 +29,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Utilities */
+h1, h2, h3 {
+  font-family: var(--font-barlow), "Impact", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 @utility stroke-text {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3);
 }

@@ -75,12 +75,18 @@ export default function Navbar() {
         {/* ── Logo ── */}
         <button
           onClick={() => scrollTo("hero")}
-          className="flex items-baseline leading-none"
+          className="flex flex-col items-center justify-center bg-black rounded-lg w-[120px] h-[50px] transition-transform hover:scale-105 active:scale-95"
           aria-label="Back to top"
         >
-          <span className="font-bebas text-[2.5rem] tracking-widest">
-            <span className="text-gold">A</span>
-            <span className="text-white">R</span>
+          <svg width="28" height="14" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="mb-1">
+            <rect x="2" y="4" width="20" height="4" fill="#CC2200" rx="1"/>
+            <rect x="0" y="2" width="3" height="8" fill="#CC2200" rx="0.5"/>
+            <rect x="21" y="2" width="3" height="8" fill="#CC2200" rx="0.5"/>
+            <rect x="4" y="1" width="2" height="10" fill="#CC2200" rx="0.5"/>
+            <rect x="18" y="1" width="2" height="10" fill="#CC2200" rx="0.5"/>
+          </svg>
+          <span className="font-body font-bold text-white text-[10px] tracking-[0.15em] uppercase leading-none">
+            AHMED RAGAB
           </span>
         </button>
 
