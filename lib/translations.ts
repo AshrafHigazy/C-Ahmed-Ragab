@@ -25,29 +25,27 @@ export const translations = {
       packages: { count: "3", label: "Coaching Packages" },
     },
 
-    transformationsTitle: "Transformations",
+    transformationsTitle: "OUR CHAMPIONS",
+    transformationsSubtitle: "SUCCESS STORIES OF OUR HEROES — BE THE BEST VERSION OF YOURSELF.",
+    transformationsCta: "MORE TRANSFORMATIONS",
 
-    whatIsTitle: "WHAT IS ONLINE COACHING?",
-    whatIsCards: [
-      { icon: "💬", text: "Personal WhatsApp / Telegram contact after payment to collect all your details" },
-      { icon: "📋", text: "Full daily schedule assessment to tailor everything to your lifestyle" },
-      { icon: "🏋️", text: "Solve any training & nutrition challenges you face" },
-      { icon: "🍎", text: "Add your favorite foods to your custom nutrition plan" },
-      { icon: "💪", text: "Identify and target your body's weak points" },
-    ],
-
-    whatYouGetTitle: "WHAT YOU GET",
-    whatYouGetCards: [
-      { icon: "🥗", title: "Custom Nutrition Plan", text: "A personalized nutrition plan built around your schedule and body type" },
-      { icon: "🎥", title: "Full Training Plan with Videos", text: "A complete training plan with exercise demo videos" },
-      { icon: "💊", title: "Supplements Plan", text: "A complete, tailored supplements recommendation plan" },
-      { icon: "📱", title: "24/7 Follow-Up", text: "Round-the-clock support — message anytime, get a reply ASAP" },
+    programTag: "[ YOUR PROGRAM ]",
+    programTitle1: "YOUR PROGRAM",
+    programTitle2: "INCLUDES.",
+    programDesc: "A complete personalized coaching program — customized for you. Everything you need to achieve your goals effectively and efficiently.",
+    programCards: [
+      { title: "Customer Support", badge: null },
+      { title: "Daily Schedule Assessment", badge: null },
+      { title: "Training & Nutrition Help", badge: null },
+      { title: "Custom Food Preferences", badge: "NEW" },
+      { title: "Weak Points Analysis", badge: null },
+      { title: "24/7 Follow-Up", badge: null },
     ],
 
     howToTitle1: "HOW TO",
     howToTitle2: "SUBSCRIPTION",
     howToSteps: [
-      { title: "HOW TO SUBSCRIBE?", desc: "Contact Coach Ahmed Ragab via WhatsApp after choosing your package to complete payment easily inside or outside Egypt." },
+      { title: "HOW TO SUBSCRIBE?", desc: "Coach Ahmed Ragab offer multiple subscription plans to suit your needs, with easy payment options available both inside and outside of Egypt — including installment plans." },
       { title: "HOW TO COMMUNICATE?", desc: "You'll have 24/7 follow-up with Coach Ahmed Ragab directly via WhatsApp — anytime, fast reply guaranteed." },
       { title: "HOW TO TRAIN?", desc: "You'll receive a fully customized training plan with video explanations, designed for gym or home, updated monthly." },
       { title: "HOW TO FOLLOW-UP?", desc: "Daily monitoring of your progress with diet and training adjustments every 15 days based on your results." },
@@ -156,32 +154,30 @@ export const translations = {
       packages: { count: "3", label: "باقات" },
     },
 
-    transformationsTitle: "التحولات",
+    transformationsTitle: "أبطالنا",
+    transformationsSubtitle: "قصص نجاح أبطالنا — كن أفضل نسخة من نفسك.",
+    transformationsCta: "المزيد من التحولات",
 
-    whatIsTitle: "ما هو الكوتشينج الأونلاين؟",
-    whatIsCards: [
-      { icon: "💬", text: "بعد التحويل، التواصل عبر واتساب أو تيليجرام الشخصي لجمع كل تفاصيلك" },
-      { icon: "📋", text: "تقييم كامل ليومك عشان نوفرلك كل حاجة على حسب يومك" },
-      { icon: "🏋️", text: "حل أي مشاكل في التدريب والتغذية" },
-      { icon: "🍎", text: "إضافة الأطعمة المفضلة في خطة التغذية الخاصة بك" },
-      { icon: "💪", text: "تحديد نقاط الضعف في جسمك والعمل عليها" },
+    programTag: "[ برنامجك ]",
+    programTitle1: "برنامجك",
+    programTitle2: "يشمل.",
+    programDesc: "برنامج كوتشينج مخصص بالكامل ليك — كل اللي محتاجه عشان توصل لهدفك بكفاءة وفاعلية.",
+    programCards: [
+      { title: "دعم العملاء", badge: null },
+      { title: "تقييم جدول يومك", badge: null },
+      { title: "حل مشاكل التدريب والتغذية", badge: null },
+      { title: "إضافة أطعمتك المفضلة", badge: "جديد" },
+      { title: "تحديد نقاط الضعف", badge: null },
+      { title: "متابعة 24/7", badge: null },
     ],
 
-    whatYouGetTitle: "ماذا ستحصل؟",
-    whatYouGetCards: [
-      { icon: "🥗", title: "خطة تغذية مخصصة", text: "خطة تغذية خاصة بك على حسب يومك وطبيعة جسمك" },
-      { icon: "🎥", title: "خطة تدريب مشروحة", text: "خطة تدريب كاملة مشروحة بالفيديوهات" },
-      { icon: "💊", title: "خطة مكملات", text: "خطة مكملات غذائية كاملة" },
-      { icon: "📱", title: "متابعة 24 ساعة", text: "متابعة 24 ساعة — ابعت في أي وقت وهيوصلك رد في أسرع وقت" },
-    ],
-
-    howToTitle1: "كيف",
+    howToTitle1: "ازاي",
     howToTitle2: "تشترك؟",
     howToSteps: [
-      { title: "كيف تشترك؟", desc: "تواصل مع كابتن أحمد رجب عبر واتساب بعد اختيار باقتك لإتمام الدفع بسهولة داخل أو خارج مصر." },
-      { title: "كيف التواصل؟", desc: "هتحظى بمتابعة 24/7 مع الكابتن أحمد رجب مباشرة عبر واتساب — في أي وقت وبرد سريع مضمون." },
-      { title: "كيف التدريب؟", desc: "هتستلم خطة تدريبية مخصصة بالكامل مشروحة بالفيديو، مصممة للجيم أو البيت، ومتجددة شهرياً." },
-      { title: "كيف المتابعة؟", desc: "متابعة يومية لتقدمك مع تعديل الدايت والتدريب كل 15 يوم بناءً على نتائجك." },
+      { title: "ازاي تشترك؟", desc: "يوجد أكثر من باقة تناسب احتياجاتك، وجميعها متاحة بطرق دفع سهلة من داخل او خارج مصر وأنظمة تقسيط." },
+      { title: "ازاي التواصل؟", desc: "هتحظى بمتابعة 24/7 مع الكابتن أحمد رجب مباشرة عبر واتساب — في أي وقت وبرد سريع مضمون." },
+      { title: "ازاي التدريب؟", desc: "هتستلم خطة تدريبية مخصصة بالكامل مشروحة بالفيديو، مصممة للجيم أو البيت، ومتجددة شهرياً." },
+      { title: "ازاي المتابعة؟", desc: "متابعة يومية لتقدمك مع تعديل الدايت والتدريب كل 15 يوم بناءً على نتائجك." },
     ],
 
     pricingTitle: "باقات الاشتراك",
@@ -230,7 +226,7 @@ export const translations = {
             percentage: "25",
             currency: "ج.م",
             features: [
-              "نظام تدريبي مخصص مشروح بالفيديوهات",
+              "نظام تدريبي مخصص لهدفك للتمرين في الجيم او البيت مشروح بالفديوهات متغير شهريا ",
               "خطة تغذية مدروسة لهدفك",
               "متابعة يومية عبر الواتساب",
               "تغيير النظام الغذائي كل 15 يوم"
@@ -245,7 +241,7 @@ export const translations = {
             percentage: "33",
             currency: "ج.م",
             features: [
-              "نظام تدريبي مخصص مشروح بالفيديوهات",
+              "نظام تدريبي مخصص لهدفك للتمرين في الجيم او البيت مشروح بالفديوهات متغير شهريا ",
               "خطة تغذية مدروسة لهدفك",
               "متابعة يومية عبر الواتساب",
               "تغيير النظام الغذائي كل 15 يوم"
