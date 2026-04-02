@@ -16,7 +16,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState<Lang>("ar"); // Default Arabic as requested
+  const [lang, setLang] = useState<Lang>("en"); // Default Arabic as requested
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
