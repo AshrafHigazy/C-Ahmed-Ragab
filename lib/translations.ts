@@ -88,7 +88,7 @@ export const translations = {
         ]
       },
       {
-        title: "Membership",
+        title: "Membership&Training",
         packages: [
           {
             duration: "30 Days",
