@@ -31,7 +31,7 @@ export const translations = {
 
     programTag: "[ YOUR PROGRAM ]",
     programTitle1: "YOUR PROGRAM",
-    programTitle2: "INCLUDES.",
+    programTitle2: "INCLUDES",
     programDesc: "A complete personalized coaching program — customized for you. Everything you need to achieve your goals effectively and efficiently.",
     programCards: [
       { title: "Customer Support", badge: null },
@@ -60,7 +60,7 @@ export const translations = {
             duration: "30 Days",
             salePrice: "350",
             originalPrice: "500",
-            percentage: "50",
+            percentage: "30",
             currency: "EGP",
             features: [
               "A meticulously studied nutrition plan for your goal",
@@ -72,9 +72,9 @@ export const translations = {
           },
           {
             duration: "90 Days",
-            salePrice: "900",
+            salePrice: "850",
             originalPrice: "1100",
-            percentage: "33",
+            percentage: "25",
             currency: "EGP",
             features: [
               "A meticulously studied nutrition plan for your goal",
@@ -160,7 +160,7 @@ export const translations = {
 
     programTag: "[ برنامجك ]",
     programTitle1: "برنامجك",
-    programTitle2: "يشمل.",
+    programTitle2: "يشمل",
     programDesc: "برنامج كوتشينج مخصص بالكامل ليك — كل اللي محتاجه عشان توصل لهدفك بكفاءة وفاعلية.",
     programCards: [
       { title: "دعم العملاء", badge: null },
@@ -187,9 +187,9 @@ export const translations = {
         packages: [
           {
             duration: "30 يوم",
-            salePrice: "250",
+            salePrice: "350",
             originalPrice: "500",
-            percentage: "50",
+            percentage: "30",
             currency: "ج.م",
             features: [
               "خطة تغذية مدروسة لهدفك",
@@ -201,9 +201,9 @@ export const translations = {
           },
           {
             duration: "90 يوم",
-            salePrice: "1,000",
-            originalPrice: "1,500",
-            percentage: "33",
+            salePrice: "850",
+            originalPrice: "1100",
+            percentage: "25",
             currency: "ج.م",
             features: [
               "خطة تغذية مدروسة لهدفك",
@@ -221,9 +221,9 @@ export const translations = {
         packages: [
           {
             duration: "30 يوم",
-            salePrice: "750",
+            salePrice: "600",
             originalPrice: "1,000",
-            percentage: "25",
+            percentage: "40",
             currency: "ج.م",
             features: [
               "نظام تدريبي مخصص لهدفك للتمرين في الجيم او البيت مشروح بالفديوهات متغير شهريا ",
@@ -236,9 +236,9 @@ export const translations = {
           },
           {
             duration: "90 يوم",
-            salePrice: "2,000",
+            salePrice: "1500",
             originalPrice: "3,000",
-            percentage: "33",
+            percentage: "50",
             currency: "ج.م",
             features: [
               "نظام تدريبي مخصص لهدفك للتمرين في الجيم او البيت مشروح بالفديوهات متغير شهريا ",
