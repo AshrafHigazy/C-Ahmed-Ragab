@@ -6,7 +6,7 @@ export const translations = {
     heroTag: "[ BE YOURSELF ]",
     heroQuote: "Just like I helped them change their lifestyle, live a healthy life, and become the best version of yourself.",
 
-    navLinks: {
+    nav: {
       home: "Home",
       about: "About",
       transformations: "Transformations",
@@ -58,7 +58,7 @@ export const translations = {
         packages: [
           {
             duration: "30 Days",
-            salePrice: "250",
+            salePrice: "350",
             originalPrice: "500",
             percentage: "50",
             currency: "EGP",
@@ -72,8 +72,8 @@ export const translations = {
           },
           {
             duration: "90 Days",
-            salePrice: "1,000",
-            originalPrice: "1,500",
+            salePrice: "900",
+            originalPrice: "1100",
             percentage: "33",
             currency: "EGP",
             features: [
@@ -92,9 +92,9 @@ export const translations = {
         packages: [
           {
             duration: "30 Days",
-            salePrice: "750",
+            salePrice: "600",
             originalPrice: "1,000",
-            percentage: "25",
+            percentage: "40",
             currency: "EGP",
             features: [
               "Customized training plan with video explanations",
@@ -107,9 +107,9 @@ export const translations = {
           },
           {
             duration: "90 Days",
-            salePrice: "2,000",
+            salePrice: "1500",
             originalPrice: "3,000",
-            percentage: "33",
+            percentage: "50",
             currency: "EGP",
             features: [
               "Customized training plan with video explanations",
@@ -136,7 +136,7 @@ export const translations = {
     heroTag: "[ كن نفسك ]",
     heroQuote: "زى ما ساعدتهم يغيرو طريقة حياتهم , عيش بطريقة صحية , واوصل انت كمان لاحسن نسخة من نفسك.",
 
-    navLinks: {
+    nav: {
       home: "الرئيسية",
       about: "عن الكابتن",
       transformations: "التحولات",

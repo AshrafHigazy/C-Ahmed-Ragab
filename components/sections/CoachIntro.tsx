@@ -16,7 +16,7 @@ export default function CoachIntro() {
   return (
     <section 
       id="about" 
-      className="overflow-hidden bg-black px-6 py-24 md:px-12 lg:py-32 border-s-4 border-gold"
+      className="overflow-hidden bg-black px-6 py-24 md:px-12 lg:py-32 border-s-4 border-gold scroll-mt-20"
     >
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-8">
         <motion.div

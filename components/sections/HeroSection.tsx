@@ -45,7 +45,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-center pt-24 px-8 md:px-16"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-center pt-24 px-8 md:px-16 scroll-mt-20"
     >
       {/* ── Full-bleed Background Image ── */}
       <div className="absolute inset-0 z-0">

@@ -34,7 +34,7 @@ export default function PricingPackages() {
         />
       )}
 
-      <section id="packages" className="bg-black px-6 py-24 md:px-12 lg:py-32">
+      <section id="packages" className="bg-black px-6 py-24 md:px-12 lg:py-32 scroll-mt-20">
         <div className="mx-auto max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -95,9 +95,10 @@ export default function PricingPackages() {
                         </h4>
 
                         <div className="mb-8 flex flex-col items-center justify-center border-b border-white/5 pb-8">
-                          <div className="text-muted line-through text-lg font-bold mb-1">
-                            {pkg.originalPrice} {pkg.currency}
-                          </div>
+                         <div className="relative text-muted text-lg font-bold mb-1 w-fit mx-auto">
+                          {pkg.originalPrice} {pkg.currency}
+                           <span className="absolute inset-x-0 top-1/2 h-[1.5px] bg-gold -translate-y-1/2 opacity-70" />
+                           </div>
                           <div className="flex items-baseline gap-2">
                             <span className="text-5xl lg:text-6xl font-bold text-gold tracking-tight">
                               {pkg.salePrice}

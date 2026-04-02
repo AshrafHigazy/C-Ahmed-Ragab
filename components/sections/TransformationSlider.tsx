@@ -58,7 +58,7 @@ export default function TransformationSlider() {
   const SLIDE_TRANSITION = { duration: 0.55, ease: "easeInOut" as const };
 
   return (
-    <section id="transformations" className="bg-black px-6 py-24 md:px-12 lg:py-32">
+    <section id="transformations" className="bg-black px-6 py-24 md:px-12 lg:py-32 scroll-mt-20">
       <div className="mx-auto max-w-6xl">
 
         {/* Section Title */}

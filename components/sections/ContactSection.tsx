@@ -29,7 +29,7 @@ export default function ContactSection() {
   const { lang } = useLang();
 
   return (
-    <section id="contact" className="bg-gradient-to-b from-brick to-[#8a2e1e] px-6 py-24 text-center md:px-12 lg:py-32">
+    <section id="contact" className="bg-gradient-to-b from-brick to-[#8a2e1e] px-6 py-24 text-center md:px-12 lg:py-32 scroll-mt-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}

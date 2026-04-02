@@ -51,12 +51,12 @@ export default function Navbar() {
   };
 
   const navLinks = [
-    { id: "hero",            label: t.navLinks.home },
-    { id: "about",           label: t.navLinks.about },
-    { id: "transformations", label: t.navLinks.transformations },
-    { id: "services",        label: t.navLinks.services },
-    { id: "packages",        label: t.navLinks.packages },
-    { id: "contact",         label: t.navLinks.contact },
+    { id: "hero",            label: t.nav.home },
+    { id: "about",           label: t.nav.about },
+    { id: "transformations", label: t.nav.transformations },
+    { id: "services",        label: t.nav.services },
+    { id: "packages",        label: t.nav.packages },
+    { id: "contact",         label: t.nav.contact },
   ];
 
   return (

@@ -92,7 +92,7 @@ export default function ProgramIncludes() {
   };
 
   return (
-    <section id="program-includes" className="bg-[#EFEFEF] py-20 px-6 md:px-12 overflow-hidden">
+    <section id="services" className="bg-[#EFEFEF] py-20 px-6 md:px-12 overflow-hidden scroll-mt-20">
       <div className="mx-auto max-w-6xl">
         {/* Title Section */}
         <motion.div
