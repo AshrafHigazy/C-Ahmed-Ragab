@@ -1,7 +1,7 @@
 // Layout: Fixed navigation bar with logo, section links, and language toggle
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLang } from "../../context/LanguageContext";
@@ -41,14 +41,7 @@ export default function Navbar() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  const scrollTo = (id: string) => {
-    setMenuOpen(false);
-    if (id === "hero") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   const navLinks = [
     { id: "hero",            label: t.nav.home },
@@ -73,8 +66,12 @@ export default function Navbar() {
       <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-6 md:px-10">
 
         {/* ── Logo ── */}
-        <button
-          onClick={() => scrollTo("hero")}
+        <a
+          href="#hero"
+          onClick={(e) => {
+            if (window.scrollY < 100) e.preventDefault();
+            closeMenu();
+          }}
           className="flex flex-col items-center justify-center bg-black rounded-lg w-[120px] h-[50px] transition-transform hover:scale-105 active:scale-95"
           aria-label="Back to top"
         >
@@ -88,14 +85,14 @@ export default function Navbar() {
           <span className="font-body font-bold text-white text-[10px] tracking-[0.15em] uppercase leading-none">
             AHMED RAGAB
           </span>
-        </button>
+        </a>
 
         {/* ── Desktop Nav Links ── */}
         <nav className="hidden items-center gap-7 md:flex" dir={dir} aria-label="Main navigation">
           {navLinks.map(({ id, label }) => (
-            <button
+            <a
               key={id}
-              onClick={() => scrollTo(id)}
+              href={`#${id}`}
               className={`relative pb-1 text-xs font-bold uppercase tracking-[0.15em] transition-colors duration-200 ${
                 activeSection === id
                   ? "text-gold"
@@ -111,7 +108,7 @@ export default function Navbar() {
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
-            </button>
+            </a>
           ))}
         </nav>
 
@@ -119,8 +116,11 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           {/* Language toggle */}
           <button
-            onClick={toggleLang}
-            className="flex items-center gap-2 text-xs font-bold transition-colors duration-200 hover:text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleLang();
+            }}
+            className="flex items-center gap-2 text-xs font-bold transition-colors duration-200 hover:text-white py-2"
             aria-label="Toggle language"
           >
             <span className={lang === "en" ? "text-white" : "text-white/40"}>EN</span>
@@ -130,8 +130,11 @@ export default function Navbar() {
 
           {/* Hamburger — mobile only */}
           <button
-            className="text-muted transition-colors hover:text-gold md:hidden"
-            onClick={() => setMenuOpen((v) => !v)}
+            className="text-muted transition-colors hover:text-gold md:hidden p-2"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMenuOpen((v) => !v);
+            }}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
@@ -178,13 +181,16 @@ export default function Navbar() {
               aria-label="Mobile navigation"
             >
               {navLinks.map(({ id, label }, i) => (
-                <motion.button
+                <motion.a
                   key={id}
+                  href={`#${id}`}
                   initial={{ opacity: 0, x: dir === "rtl" ? 20 : -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.25 }}
-                  onClick={() => scrollTo(id)}
-                  className={`py-3 text-right text-base font-bold uppercase tracking-widest transition-colors duration-200 ${
+                  onTap={closeMenu}
+                  onClick={closeMenu}
+                  whileTap={{ scale: 0.98, backgroundColor: "rgba(255,255,255,0.05)" }}
+                  className={`py-4 px-2 text-right text-base font-bold uppercase tracking-widest transition-colors duration-200 block border-b border-white/5 last:border-none ${
                     dir === "ltr" ? "text-left" : "text-right"
                   } ${
                     activeSection === id
@@ -193,7 +199,7 @@ export default function Navbar() {
                   }`}
                 >
                   {label}
-                </motion.button>
+                </motion.a>
               ))}
             </nav>
           </motion.div>
