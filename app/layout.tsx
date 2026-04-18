@@ -23,12 +23,12 @@ const barlowCondensed = Barlow_Condensed({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://coachragab.com"),
-  title: "كابتن أحمد رجب | أفضل كوتشينج وتدريب أونلاين",
+  title: "كابتن أحمد رجب | للتدريب الاون لاين",
   description: "انضم إلى أكثر من 500+ مشترك وحقق أفضل نسخة من نفسك مع كابتن أحمد رجب. خطط تدريب وتغذية مخصصة ومتابعة 24/7.",
   openGraph: {
     locale: "ar_EG",
     type: "website",
-    title: "كابتن أحمد رجب | أفضل كوتشينج وتدريب أونلاين",
+    title: "كابتن أحمد رجب | للتدريب الاون لاين",
     description: "حقق أفضل نسخة من نفسك مع خطط التدريب والتغذية المخصصة من كابتن أحمد رجب.",
     url: "https://coachragab.com",
     siteName: "Coach Ahmed Ragab",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "كابتن أحمد رجب | كوتشينج وتدريب أونلاين",
+      title: "كابتن أحمد رجب | كوتشينج وتدريب أونلاين",
     description: "حقق أفضل نسخة من نفسك مع خطط التدريب والتغذية المخصصة من كابتن أحمد رجب.",
     images: ["/images/hero-bg.jpg"],
   },
