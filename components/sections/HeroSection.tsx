@@ -45,7 +45,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-center pt-24 px-8 md:px-16 scroll-mt-20"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-center pt-24 px-8 md:px-16"
     >
       {/* ── Full-bleed Background Image ── */}
       <div className="absolute inset-0 z-0">
@@ -104,13 +104,13 @@ export default function HeroSection() {
       </div>
 
       {/* ── Main Content — tightly grouped vertical block ── */}
-      <div className="relative z-10 flex w-full max-w-5xl flex-col items-center justify-center text-center">
+      <div className="relative z-10 flex w-full max-w-5xl flex-col items-center justify-center">
         {/* 1. Small tag */}
         <motion.p
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="mb-2 text-[13px] uppercase tracking-[0.3em] font-bold text-[#CC2200]"
+          className="mb-2 text-[13px] uppercase tracking-[0.3em] font-bold text-orange"
         >
           {t.heroTag}
         </motion.p>
@@ -120,14 +120,14 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-[clamp(2rem,6vw,5.5rem)] uppercase leading-[1.2] text-white flex flex-wrap justify-center items-center gap-x-2"
+          className="text-[clamp(20px,12vw,100px)] uppercase leading-[0.85] text-white flex flex-col items-center"
           style={HEADING_STYLE}
         >
-          <span className="drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)]">
+          <span className="block drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)]">
             {t.heroName}
           </span>
-          {" "}
-          <span style={{ display: "inline-block", minWidth: "10ch", textAlign: "center" }} className="drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">
+
+          <span className="relative block min-h-[1.1em] stroke-text drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)] mt-1">
             <AnimatePresence mode="wait">
               <motion.span
                 key={wordIndex}
@@ -135,7 +135,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="inline-block text-white"
+                className="inline-block"
               >
                 {words[wordIndex]}
               </motion.span>
@@ -158,7 +158,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-          className={`mt-8 flex items-center justify-center gap-8 ${isRtl ? "flex-row-reverse" : "flex-row"}`}
+          className={`mt-6 flex items-center gap-6 ${isRtl ? "flex-row-reverse" : "flex-row"}`}
         >
           {SOCIAL_ITEMS.map(({ label, href }) => (
             <a
@@ -166,28 +166,28 @@ export default function HeroSection() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 transition-all duration-300"
+              className="group flex items-center gap-[6px] text-[0.7rem] font-bold uppercase tracking-[0.15em] text-white/60 transition-all duration-300 hover:text-orange"
             >
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[rgba(255,255,255,0.7)] group-hover:text-white">
-                {label}
-              </span>
-              <div className="flex h-[28px] w-[28px] items-center justify-center rounded-full border border-white/40 transition-colors group-hover:border-white">
-                <ArrowUpRight
-                  size={14}
-                  className="text-[rgba(255,255,255,0.7)] transition-colors group-hover:text-white"
-                />
-              </div>
+              {label}
+              <ArrowUpRight
+                size={12}
+                className={`transition-transform duration-300 ${
+                  isRtl
+                    ? "group-hover:-translate-y-1 group-hover:-translate-x-1"
+                    : "group-hover:-translate-y-1 group-hover:translate-x-1"
+                }`}
+              />
             </a>
           ))}
         </motion.div>
       </div>
 
-      {/* ── Mouse Scroll Indicator — bottom CENTER ── */}
+      {/* ── Mouse Scroll Indicator — bottom-right (or bottom-left in RTL) ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.0, duration: 0.8 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
+        className={`absolute bottom-8 z-10 ${isRtl ? "left-8" : "right-8"}`}
         aria-label="Scroll down"
       >
         {/* Mouse SVG outline */}
