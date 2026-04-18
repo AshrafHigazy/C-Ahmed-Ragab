@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-orange: #F5A623;
-  --color-brick: #B94E3A;
-  --color-dark-bg: #050505;
+  --color-gold: #F5C518;
+  --color-orange: #F5C518;
+  --color-brick: #CC2200;
+  --color-dark-bg: #000000;
   --color-white: #FFFFFF;
-  --color-surface: #141414;
-  --color-border: #222222;
-  --color-text: #F0F0F0;
-  --color-muted: #888888;
+  --color-surface: #0F0F0F;
+  --color-border: #1A1A1A;
+  --color-text: #FFFFFF;
+  --color-muted: #999999;
   --color-background: var(--color-dark-bg);
   --color-foreground: var(--color-text);
   --font-heading: var(--font-barlow), "Impact", sans-serif;
@@ -23,8 +24,18 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-body);
+  transition: direction 150ms ease, background-color 150ms ease, color 150ms ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Improve mobile touch responsiveness */
+button, 
+a, 
+input, 
+select, 
+textarea {
+  touch-action: manipulation;
 }
 
 h1, h2, h3 {
